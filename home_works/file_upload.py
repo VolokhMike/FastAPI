@@ -26,12 +26,6 @@ async def process_image(image_data: bytes, format_type: str, dimensions: tuple[i
     resized_image.save(save_path)
     print(f"Image saved to: {save_path}")
 
-@app.post("/login/")
-async def authenticate_user(
-    user_email: str = Form(examples=["john@example.com"]),
-    user_password: str = Form(examples=["password"]),
-):
-    return {"username": user_email, "password": user_password}
 
 @app.post("/upload_file_as_bytes/")
 async def upload_bytes_file(uploaded_file: bytes = File(default=None)):
